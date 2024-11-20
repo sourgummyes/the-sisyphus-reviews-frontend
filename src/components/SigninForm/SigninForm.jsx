@@ -31,6 +31,10 @@ const SigninForm = (props) => {
     }
   };
 
+  const handleCancel = () => {
+    navigate("/");  // Handle cancel action by redirecting to home
+  };
+
   return (
     <main>
       <h1>Log In</h1>
@@ -60,9 +64,7 @@ const SigninForm = (props) => {
         </div>
         <div>
           <button>Log In</button>
-          <Link to="/">
-            <button>Cancel</button>
-          </Link>
+          <button type="button" onClick={handleCancel}>Cancel</button> 
         </div>
       </form>
     </main>
