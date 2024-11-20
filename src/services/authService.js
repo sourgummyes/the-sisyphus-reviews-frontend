@@ -1,12 +1,9 @@
 import axios from "axios";
-const BACKEND_URL = import.meta.env.VITE_EXPRESS_BACKEND_URL;
+const BACKEND_URL = import.meta.env.VITE_BACK_END_SERVER_URL;
 
 const signup = async (formData) => {
   try {
-    const res = await axios.post(
-      `${VITE_EXPRESS_BACKEND_URL}/users/signup`,
-      formData
-    );
+    const res = await axios.post(`${BACKEND_URL}/users/signup`, formData);
 
     if (res.err) {
       throw new Error(res.err);
@@ -53,7 +50,7 @@ const getUser = () => {
 };
 
 const signout = () => {
-  localStorage.remoeItem("token");
+  localStorage.removeItem("token");
 };
 
 export { signup, signin, getUser, signout };

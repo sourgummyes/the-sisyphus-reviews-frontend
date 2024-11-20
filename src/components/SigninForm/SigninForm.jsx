@@ -31,9 +31,9 @@ const SigninForm = (props) => {
     }
   };
 
-  const handleCancel = () => {
-    navigate("/");  // Handle cancel action by redirecting to home
-  };
+  // const handleCancel = () => {
+  //   navigate("/");  // Handle cancel action by redirecting to home
+  // };
 
   return (
     <main>
@@ -64,7 +64,10 @@ const SigninForm = (props) => {
         </div>
         <div>
           <button>Log In</button>
-          <button type="button" onClick={handleCancel}>Cancel</button> 
+          <Link to="/">
+            <button>Cancel</button>
+          </Link>
+          {/* <button type="button" onClick={handleCancel}>Cancel</button>  */}
         </div>
       </form>
     </main>
