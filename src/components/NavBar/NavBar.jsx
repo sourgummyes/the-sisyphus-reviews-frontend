@@ -14,16 +14,13 @@ const NavBar = ({ user, handleSignout }) => {
                 Sign Out
               </Link>
             </li>
-            <li>
-              <Link to="">Sign Out</Link>
-            </li>
           </ul>
         </nav>
       ) : (
         <nav>
           <ul>
             <li>
-              <Link to="/sigin">Sign In</Link>
+              <Link to="/signin">Sign In</Link>
             </li>
             <li>
               <Link to="/signup">Sign Up</Link>

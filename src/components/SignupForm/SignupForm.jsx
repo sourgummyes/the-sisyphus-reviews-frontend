@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import * as authService from "../../services/authService.js"; //Not created, yet, but will create a service directory and file it can import
+import * as authService from "../../services/authService.js";
 
 const SignupForm = (props) => {
   const navigate = useNavigate();
@@ -24,16 +24,17 @@ const SignupForm = (props) => {
     updateMessage("");
     try {
       const newUserResponse = await authService.signup(formData);
-      props.setUser(newUserResponse.user);
+      props.setUser(newUserResponse);
+      navigate("/");
     } catch (error) {
       updateMessage(error.message);
     }
   };
 
-  const { username, password, paswordConf } = formData;
+  const { username, password, passwordConf } = formData;
 
   const isFormInvalid = () => {
-    return !(username && password && password === paswordConf);
+    return !(username && password && password === passwordConf);
   };
 
   return (
@@ -42,7 +43,7 @@ const SignupForm = (props) => {
       <p>{message}</p>
       <form onSubmit={handleSubmit}>
         <div>
-          <lable htmlFor="username">Username:</lable>
+          <label htmlFor="username">Username:</label>
           <input
             type="text"
             id="name"
@@ -62,7 +63,17 @@ const SignupForm = (props) => {
           />
         </div>
         <div>
-          <button disabled={isFormInvalid()}>SignUp</button>
+          <label htmlFor="confirm">Confirm Password:</label>
+          <input
+            type="password"
+            id="confirm"
+            value={passwordConf}
+            name="passwordConf"
+            onChange={handleChange}
+          />
+        </div>
+        <div>
+          <button disabled={isFormInvalid()}>Sign Up</button>
           <Link to="/">
             <button>Cancel</button>
           </Link>
