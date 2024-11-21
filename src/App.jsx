@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Routes, Route } from "react-router-dom";
 import NavBar from "./components/NavBar/NavBar";
 import Landing from "./components/Landing/Landing";
@@ -10,6 +10,24 @@ import BookList from "./components/BookList.jsx";
 
 const App = () => {
   const [user, setUser] = useState(authService.getUser());
+  const [bookList, setBookList] = useState([]);
+  
+  useEffect(() => {
+    const fetchBooks = async () => {
+      try {
+        const books = await bookService.index();
+
+        if (books.error) {
+          throw new Error(books.error);
+        }
+
+        setBookList(books);
+      } catch (error) {
+        console.log(error);
+      }
+    };
+    fetchBooks();
+  }, []);
 
   const handleSignout = () => {
     authService.signout();
@@ -28,6 +46,7 @@ const App = () => {
         <Route path="/signup" element={<SignupForm setUser={setUser} />} />
         <Route path="/signin" element={<SigninForm setUser={setUser} />} />
       </Routes>
+      <BookList bookList={bookList} />
     </>
   );
 };

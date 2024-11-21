@@ -11,7 +11,7 @@ const BookList = (props) => {
           {props.books.map((currentBook) => (
             <li key={currentBook._id}>
               <Link to={`/books/${currentBook._id}`}>
-                <img src={props.books.bookName} />
+                {props.books.bookName}
               </Link>
             </li>
           ))}
