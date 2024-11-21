@@ -1,13 +1,15 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
 
+const BASE_URL=`${import.meta.env.VITE_BACK_END_SERVER_URL}/reviews`;
+
 const ReviewList = (props) => {
   const [reviews, setReviews] = useState([]);
 
   useEffect(() => {
     const getReviews = async () => {
       try {
-        const response = await axios.get(`${import.meta.env.VITE_BACK_END_SERVER_URL}/books/${props.bookId}/reviews`);
+        const response = await axios.get(`${BASE_URL}/${props.bookId}`);
         setReviews(response.data);
       } catch (error) {
         console.error("Error getting reviews:", error);

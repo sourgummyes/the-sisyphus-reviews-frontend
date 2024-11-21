@@ -49,9 +49,9 @@ const App = () => {
         )}
         <Route path="/signup" element={<SignupForm setUser={setUser} />} />
         <Route path="/signin" element={<SigninForm setUser={setUser} />} />
-        {/* <Route path="/:bookId/reviews" */}
+        <Route path="/:bookId/reviews"
+        BookList bookList={bookList} />
       </Routes>
-      <BookList bookList={bookList} />
     </>
   );
 };
