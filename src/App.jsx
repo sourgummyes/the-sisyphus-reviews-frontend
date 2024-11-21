@@ -7,6 +7,7 @@ import SignupForm from "./components/SignupForm/SignupForm";
 import SigninForm from "./components/SigninForm/SigninForm";
 import * as authService from "../src/services/authService";
 import BookList from "./components/BookList.jsx";
+import * as bookService from "../src/services/bookService.js"
 
 const App = () => {
   const [user, setUser] = useState(authService.getUser());
