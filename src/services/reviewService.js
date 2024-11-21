@@ -20,6 +20,24 @@ const create = async (formData) => {
   }
 };
 
+const getReviewById = async (reviewId) => {
+  try {
+    const res = await axios.get(BASE_URL / `${reviewId}`);
+    return res.data;
+  } catch (err) {
+    console.log(err);
+  }
+};
+
+const getReviewsByBookId = async (bookId) => {
+  try {
+    const res = await axios.get(BASE_URL / `${bookId}`);
+    return res.data;
+  } catch (err) {
+    console.log(err)
+  }
+};
+
 const updateReview = async (formData, reviewId) => {
   try {
     const res = await axios.put(`${BASE_URL}/${reviewId}`, formData);
@@ -42,6 +60,8 @@ const deleteReview = async (reviewId) => {
 export { 
   index,
   create,
+  getReviewById,
+  getReviewsByBookId,
   updateReview,
   deleteReview
 };

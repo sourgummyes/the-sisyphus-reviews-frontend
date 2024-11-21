@@ -1,21 +1,41 @@
+import { useEffect, useState } from "react";
+import axios from "axios";
+
 const ReviewList = (props) => {
-    const pets = props.reviewList.map((review) => (
-        <a key={review._id} onClick={ () => props.updateSelected(review) }>
-            <li key={review._id}>{review.name}</li>
-        </a>
-    ))
-    
-    return (
-      <div>
-        <h1>Individual Reviews</h1>
-        {!props.reviewList.length ? <h2>No Reviews Yet!</h2> : <ul>{ reviews }</ul>}
+  const [reviews, setReviews] = useState([]);
 
-      <button onClick={props.handleFormView}>
-        { props.isFormOpen ? 'Close Form' : 'New Review' }
-      </button>
+  useEffect(() => {
+    const getReviews = async () => {
+      try {
+        const response = await axios.get(`${import.meta.env.VITE_BACK_END_SERVER_URL}/books/${props.bookId}/reviews`);
+        setReviews(response.data);
+      } catch (error) {
+        console.error("Error getting reviews:", error);
+      }
+    };
 
-      </div>
-    )
+    getReviews();
+  }, [props.bookId]);
+
+  if (!reviews.length) {
+    return <h2>No reviews found...</h2>;
   }
-  
-  export default ReviewList;
+
+  return (
+    <div>
+      <h2>Reviews</h2>
+      <ul>
+        {reviews.map((review) => (
+          <li key={review._id}>
+            <p>
+              <strong>{review.user_Id}</strong>: {review.review}
+            </p>
+            <p>Rating: {review.rating}</p>
+          </li>
+        ))}
+      </ul>
+    </div>
+  );
+};
+
+export default ReviewList;
