@@ -8,10 +8,13 @@ import SigninForm from "./components/SigninForm/SigninForm";
 import * as authService from "../src/services/authService";
 import BookList from "./components/BookList.jsx";
 import * as bookService from "../src/services/bookService.js"
+import ReviewList from "./components/ReviewList.jsx";
+import * as reviewService from "../src/services/reviewService.js";
 
 const App = () => {
   const [user, setUser] = useState(authService.getUser());
   const [bookList, setBookList] = useState([]);
+  const [reviewList, setReviewList] = useState([]);
   
   useEffect(() => {
     const fetchBooks = async () => {
@@ -46,6 +49,7 @@ const App = () => {
         )}
         <Route path="/signup" element={<SignupForm setUser={setUser} />} />
         <Route path="/signin" element={<SigninForm setUser={setUser} />} />
+        {/* <Route path="/:bookId/reviews" */}
       </Routes>
       <BookList bookList={bookList} />
     </>

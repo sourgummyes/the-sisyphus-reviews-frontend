@@ -29,6 +29,15 @@ const getReviewById = async (reviewId) => {
   }
 };
 
+const getReviewsByBookId = async (bookId) => {
+  try {
+    const res = await axios.get(BASE_URL / `${bookId}`);
+    return res.data;
+  } catch (err) {
+    console.log(err)
+  }
+};
+
 const updateReview = async (formData, reviewId) => {
   try {
     const res = await axios.put(`${BASE_URL}/${reviewId}`, formData);
@@ -52,6 +61,7 @@ export {
   index,
   create,
   getReviewById,
+  getReviewsByBookId,
   updateReview,
   deleteReview
 };
