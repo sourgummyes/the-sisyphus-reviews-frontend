@@ -10,6 +10,7 @@ import BookList from "./components/BookList.jsx";
 import * as bookService from "../src/services/bookService.js"
 import ReviewList from "./components/ReviewList.jsx";
 import * as reviewService from "../src/services/reviewService.js";
+import BookDetail from './components/BookDetail.jsx';
 
 const App = () => {
   const [user, setUser] = useState(authService.getUser());
@@ -49,9 +50,8 @@ const App = () => {
         )}
         <Route path="/signup" element={<SignupForm setUser={setUser} />} />
         <Route path="/signin" element={<SigninForm setUser={setUser} />} />
-        <Route path="/:bookId/reviews"
-        BookList bookList={bookList} />
       </Routes>
+      <BookList bookList={bookList} />
     </>
   );
 };
