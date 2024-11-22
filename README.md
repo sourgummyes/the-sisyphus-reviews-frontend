@@ -1,22 +1,40 @@
-# the-sisyphus-reviews-frontend
+# The Sisyphus Review
 
-Commit once You've Completed a File or Added a Major Feature-Ask Everyone Else to Stop What They're Doing, Allow you to Commit, and then Pull Down as Follows
+![alt text](<image (2).png>)
 
-The person doing the commit will complete all steps up to "Git checkout main" and EVERYONE, including the person who committed will complete enter the remaining commands to clone down and ensure that they're working off of their own branch.
+## Description 
+The Sisyphus Review is a book review website where users can sign up, sign in, peruse books and book reviews, write their own reviews, and edit or delete their own reviews as needed. The back-end application is built with Express and Node, while the front-end application is built with React. The project implements JWT token-based authentication for user sign-up, sign-in, and sign-out, and authorization is enforced across both the front-end and back-end. Guest users (those not signed in) cannot create, update, or delete data in the application or access functionality allowing those actions. The project has full CRUD functionality on both the back-end and front-end.
 
-If there is a conflict while committing, then the person committing shares their screen, and everyone looks at a it together to ensure that there is consensus in the resolution of the conflict of the code--ideally, this flow will avoid conflicts when committing altogether. We should all communicate which file we're working in and ask the team before we switch into another file to ensure no one else is working in that file.
+## Background 
+The Sisyphus Review was built to provide a platform for book enthusiasts to share their thoughts and opinions on various books. The goal was to create a user-friendly and secure environment where users can easily manage their book reviews.
 
-Individual Pushing a New Feature/File
-Git add
-Git commit -m’message’
-Git merge main
-Git push origin branch-name
-Pull request submitted on Github, review by somone who didn't write the code to authorize/complete the request
+## Getting Started
 
-Rest of the Group Completes These Once Pull is Completed
-Git checkout main
-Git pull origin main
-Git checkout branch-name
-Git merge main
+Deployed App: https://sisyphus-reviews.netlify.app/
 
-testing Jake 2
+Planning Materials: https://trello.com/b/4vxTL0Ue/the-sisyphus-review
+
+Back-End Repository: https://github.com/JakeMackBrown/The-Sisyphus-Review-backend
+
+### Attributions
+
+* Express
+* Node.js
+* React
+* JWT
+
+### Technologies Used
+
+* JavaScript
+* Express
+* Node.js
+* React
+* JWT
+
+### Next Steps
+
+* Implementing a recommendation system based on user reviews
+* Adding social features such as following other users and liking reviews
+* Enhancing the search functionality to include filters and sorting options
+* Enhancing CSS functionality for book covers
+* Reference Review data in Book Schema for a more thoroughly integrated review page.
