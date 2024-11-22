@@ -1,4 +1,3 @@
-//Contents of this page will need to be altered relative to our actual page, not totally sure that we need it? For now I just lifted the boiler plate from the react-jwt-auth-template.
 import BookList from "../BookList";
 
 const Landing = (props) => {

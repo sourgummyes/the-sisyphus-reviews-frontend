@@ -4,7 +4,6 @@ const BASE_URL = `${import.meta.env.VITE_BACK_END_SERVER_URL}/reviews`;
 
 const EditReviewForm = (props) => {
   const [review, setReview] = useState({
-    //Sets the intial state of the book to an empty object.
     book: props.bookId,
     user_Id: props.user,
     rating: "",
@@ -12,15 +11,14 @@ const EditReviewForm = (props) => {
   });
 
   useEffect(() => {
-    //Checks to see if there is a current review for the book, and sets that review in the form.
     if (props.currentReview) {
       setReview(props.currentReview);
     }
-  }, [props.currentReview]); //I think this will also just preopulate the data as before, but I'm not positive. Ask Jake what it does, and test. May need to be an empty array?
+  }, [props.currentReview]);
 
   const handleChange = (e) => {
-    const { name, value } = e.target; //Grabs the "name" from each input field below and returns the value. Does anything need to be changed relative to the referncing the books below?
-    setReview({ ...review, [name]: value }); //creates a copy of the review object in state, and sets the review with inputted values from below.
+    const { name, value } = e.target;
+    setReview({ ...review, [name]: value });
   };
 
   const handleSubmit = async (e) => {

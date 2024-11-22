@@ -56,11 +56,18 @@ button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
 }
 
+.bookDetails {
+  display: block;
+  justify-content: center;
+  margin: 0px 200px 0px 200px;
+}
+
 .bookImage {
   display: flex;
   max-width: 500px;
   max-height: 500px;
   margin: 10px;
+  justify-content: center;
 }
 
 @media (prefers-color-scheme: light) {

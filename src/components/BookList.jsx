@@ -22,5 +22,3 @@ const BookList = (props) => {
 };
 
 export default BookList;
-
-// {`/books/${currentBook._id}`}
