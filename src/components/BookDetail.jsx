@@ -24,7 +24,7 @@ const BookDetail = (props) => {
         ) : (
           <button>Sigin to Leave Reviews</button>
         )}
-        <ReviewList bookId={bookId} />
+        <ReviewList bookId={bookId} user={props.user} />
       </div>
     </>
   );
