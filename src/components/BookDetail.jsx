@@ -13,7 +13,7 @@ const BookDetail = (props) => {
   return (
     <>
       <div>
-        <img src={book.bookImg} alt={book.bookName} />
+        <img src={book.bookImg} alt={book.bookName} className="bookImage" />
         <h1 id="title">{book.bookName}</h1>
         {/* <h2 id="author">{props..authorName}</h2>
             <h2 id="publisher">{props..publisherName}</h2>
