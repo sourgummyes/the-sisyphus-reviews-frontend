@@ -10,7 +10,7 @@ const BookList = (props) => {
         <ul>
           {props.bookList.map((currentBook) => (
             <li key={currentBook._id}>
-              <Link to={`/reviews/${currentBook._id}`}>
+              <Link to={`/books/${currentBook._id}`}>
                 {currentBook.bookName}
               </Link>
             </li>

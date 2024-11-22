@@ -1,10 +1,12 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
+import EditReviewForm from "./EditReviewForm";
 
-const BASE_URL=`${import.meta.env.VITE_BACK_END_SERVER_URL}/reviews`;
+const BASE_URL = `${import.meta.env.VITE_BACK_END_SERVER_URL}/reviews`;
 
 const ReviewList = (props) => {
   const [reviews, setReviews] = useState([]);
+  const [showEditForm, setShowEditForm] = useState(false);
 
   useEffect(() => {
     const getReviews = async () => {
@@ -23,17 +25,12 @@ const ReviewList = (props) => {
     return <h2>No reviews found...</h2>;
   }
 
-  return (
+  return (  //Pass Review component as a prop, prop.review
     <div>
       <h2>Reviews</h2>
       <ul>
         {reviews.map((review) => (
-          <li key={review._id}>
-            <p>
-              <strong>{review.user_Id}</strong>: {review.review}
-            </p>
-            <p>Rating: {review.rating}</p>
-          </li>
+          
         ))}
       </ul>
     </div>
