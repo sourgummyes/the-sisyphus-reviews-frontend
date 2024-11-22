@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
-const BASE_URL = `${import.meta.env.VITE_BACK_END_SERVER_URL}`;
+const BASE_URL = `${import.meta.env.VITE_BACK_END_SERVER_URL}/reviews`;
 
 const EditReviewForm = (props) => {
   const [review, setReview] = useState({
@@ -26,12 +26,9 @@ const EditReviewForm = (props) => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      if (props.currentReview) {
-        await axios.put(`${BASE_URL}/${props.currentReview._id}`, review);
-      } else {
-        await axios.post(`${BASE_URL}`, review);
-      }
-      props.onSave();
+      await axios.put(`${BASE_URL}/${props.currentReview._id}`, review);
+      props.getReviews();
+      props.setShowEditForm(false);
     } catch (error) {
       console.error("Error saving review:", error);
     }
