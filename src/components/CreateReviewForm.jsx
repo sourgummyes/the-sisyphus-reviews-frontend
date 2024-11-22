@@ -4,7 +4,6 @@ const BASE_URL = `${import.meta.env.VITE_BACK_END_SERVER_URL}/reviews`;
 
 const CreateReviewForm = (props) => {
   const [review, setReview] = useState({
-    //Sets the intial state of the book to an empty object.
     book: props.bookId,
     user_Id: props.user._id,
     rating: "",
@@ -12,8 +11,8 @@ const CreateReviewForm = (props) => {
   });
 
   const handleChange = (e) => {
-    const { name, value } = e.target; //Grabs the "name" from each input field below and returns the value. Does anything need to be changed relative to the referncing the books below?
-    setReview({ ...review, [name]: value }); //creates a copy of the review object in state, and sets the review with inputted values from below.
+    const { name, value } = e.target;
+    setReview({ ...review, [name]: value });
   };
 
   const handleSubmit = async (e) => {

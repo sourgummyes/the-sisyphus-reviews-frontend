@@ -20,8 +20,6 @@ const getBookById = async (bookId) => {
   }
 };
 
-//Specify by ID--create get route
-
 const create = async (formData) => {
   try {
     const res = await axios.post(BASE_URL, formData);
@@ -50,10 +48,4 @@ const deleteBook = async (bookId) => {
   }
 };
 
-export { 
-  index,
-  create, 
-  getBookById,
-  updateBook,
-  deleteBook 
-};
+export { index, create, getBookById, updateBook, deleteBook };

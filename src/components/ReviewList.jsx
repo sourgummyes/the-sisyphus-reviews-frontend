@@ -24,7 +24,6 @@ const ReviewList = (props) => {
   }
 
   return (
-    //Pass Review component as a prop, prop.review
     <div>
       <h2>Reviews</h2>
       <ul>
