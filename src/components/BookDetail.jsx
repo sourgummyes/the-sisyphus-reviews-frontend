@@ -4,6 +4,7 @@ import CreateReviewForm from "./CreateReviewForm";
 
 const BookDetail = (props) => {
   const { bookId } = useParams();
+  
   if (!props.bookList) {
     return <h1>No book details found.</h1>;
   }

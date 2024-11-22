@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
 import EditReviewForm from "./EditReviewForm";
+import Review from "./Review";
 
 const BASE_URL = `${import.meta.env.VITE_BACK_END_SERVER_URL}/reviews`;
 
@@ -30,7 +31,7 @@ const ReviewList = (props) => {
       <h2>Reviews</h2>
       <ul>
         {reviews.map((review) => (
-          
+          <Review review = {review} />
         ))}
       </ul>
     </div>
