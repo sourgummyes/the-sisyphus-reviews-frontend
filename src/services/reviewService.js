@@ -1,6 +1,6 @@
-import axios from 'axios';
+import axios from "axios";
 
-const BASE_URL = `${import.meta.env.VITE_BACK_END_SERVER_URL}/books`;
+const BASE_URL = `${import.meta.env.VITE_BACK_END_SERVER_URL}/reviews`;
 
 const index = async () => {
   try {
@@ -31,10 +31,10 @@ const getReviewById = async (reviewId) => {
 
 const getReviewsByBookId = async (bookId) => {
   try {
-    const res = await axios.get(`${BASE_URL}/${bookId}/reviews`);
+    const res = await axios.get(`${BASE_URL}/${bookId}`);
     return res.data;
   } catch (err) {
-    console.log(err)
+    console.log(err);
   }
 };
 
@@ -57,11 +57,11 @@ const deleteReview = async (reviewId) => {
   }
 };
 
-export { 
+export {
   index,
   create,
   getReviewById,
   getReviewsByBookId,
   updateReview,
-  deleteReview
+  deleteReview,
 };

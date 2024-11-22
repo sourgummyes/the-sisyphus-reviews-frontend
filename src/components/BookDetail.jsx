@@ -1,22 +1,33 @@
+import { useParams } from "react-router-dom";
+import ReviewList from "./ReviewList";
+import CreateReviewForm from "./CreateReviewForm";
+
 const BookDetail = (props) => {
-    if(!prop.selected){
-        return(
-            <h1>No book details found.</h1>
-        )
-    }
-    return (
-        <>
-        <div>
-            <img src={props.selected.bookImg} alt={props.selected.bookName} />
-            <h1 id="title">{props.selected.bookName}</h1>
-            <h2 id="author">{props.selected.authorName}</h2>
-            <h2 id="publisher">{props.selected.publisherName}</h2>
-            <h2 id="genre">{props.selected.genre}</h2>
-            <h3 id="isbn">{props.selected.isbnString}</h3>
-            <h3 id="create">Added to database {props.selected.createdAt}</h3>
-        </div>
-        </>
-    )
-}
+  const { bookId } = useParams();
+  if (!props.bookList) {
+    return <h1>No book details found.</h1>;
+  }
+  let book = props.bookList.filter((book) => book._id === bookId);
+  book = book[0];
+  return (
+    <>
+      <div>
+        <img src={book.bookImg} alt={book.bookName} />
+        <h1 id="title">{book.bookName}</h1>
+        {/* <h2 id="author">{props..authorName}</h2>
+            <h2 id="publisher">{props..publisherName}</h2>
+            <h2 id="genre">{props..genre}</h2>
+            <h3 id="isbn">{props..isbnString}</h3>
+            <h3 id="create">Added to database {props..createdAt}</h3> */}
+        {props.user ? (
+          <CreateReviewForm bookId={bookId} user={props.user} />
+        ) : (
+          <button>Sigin to Leave Reviews</button>
+        )}
+        <ReviewList bookId={bookId} />
+      </div>
+    </>
+  );
+};
 
 export default BookDetail;
